@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SpeedReadingAssistant</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>SpeedReadingAssistant</h1>
+    <div class="inputContainer">
+      <textarea id="inputText" name="input" rows="8" cols="80"></textarea>
+      <button type="button" id="convertButton" onclick="convertText()">Convert</button>
+    </div>
+    <div class="outputContainer">
+      <div class="outputTextBox">
+        <p id="outputText">output</p>
+      </div>
+      <input type="text" placeholder="reading speed"><p>words/minute</p>
+      <button type="button" id="playPauseButton"></button>
+    </div>
+    <script type="text/javascript" src="js/speedReading.js"></script>
+  </body>
+</html>
