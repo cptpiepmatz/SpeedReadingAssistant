@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>SpeedReadingAssistant</h1>
+    <div class="heading">
+      <h1>SpeedReadingAssistant</h1>
+    </div>
     <div class="inputContainer">
       <textarea id="inputText" name="input" rows="8" cols="80"></textarea>
       <button type="button" id="convertButton" onclick="convertText()">Convert</button>
@@ -15,7 +17,7 @@
       <div class="outputTextBox">
         <p id="outputText">output</p>
       </div>
-      <input type="text" placeholder="reading speed" id="readingSpeed" value="200"><p>words/minute</p>
+      <input type="text" placeholder="reading speed" id="readingSpeed" value="200">words/minute</input>
       <button type="button" id="playPauseButton" onclick="playPauseReader()"></button>
     </div>
     <script type="text/javascript" src="js/speedReading.js"></script>

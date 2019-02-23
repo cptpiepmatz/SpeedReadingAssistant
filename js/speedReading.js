@@ -1,6 +1,10 @@
 document.getElementById("inputText").value = sessionStorage.getItem("convertText");
 document.getElementById("readingSpeed").value = localStorage.getItem("readingSpeed");
 //paste in saved data
+if(Number(localStorage.getItem("readingSpeed")) == 0) {
+  //if no speed is saved
+  document.getElementById("readingSpeed").value = 200;
+}
 
 //global variables
 var wordArray;
