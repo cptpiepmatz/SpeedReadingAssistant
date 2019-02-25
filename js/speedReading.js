@@ -38,7 +38,7 @@ function convertText() {
   let textToConvert = document.getElementById("inputText").value;
   sessionStorage.setItem("convertText", textToConvert);
   //keep text that needs to be converted for a session
-  wordArray = textToConvert.split(" ");
+  wordArray = textToConvert.split(/\s+/);
 
   clearInterval(loopFunction);
 
