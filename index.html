@@ -4,22 +4,41 @@
     <meta charset="utf-8">
     <title>SpeedReadingAssistant</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
-  <body>
+  <body onclick="selectPlayPause()">
     <div class="heading">
-      <h1>SpeedReadingAssistant</h1>
+      <h1>SPEED READING ASSISTANT</h1>
+      <p>Read faster by removing the need to move your eye</p>
     </div>
-    <div class="inputContainer">
-      <textarea id="inputText" name="input" rows="8" cols="80"></textarea>
-      <button type="button" id="convertButton" onclick="convertText()">Convert</button>
-    </div>
-    <div class="outputContainer">
-      <div class="outputTextBox">
-        <p id="outputText">output</p>
+    <div class="mainContainer" id="main">
+      <div class="inputContainer">
+        <textarea id="inputText" name="input" rows="8" cols="80"></textarea>
+        <div class="convertButtonContainer">
+          <button type="button" id="convertButton" onclick="showOutput();convertText()">Convert</button>
+        </div>
       </div>
-      <input type="text" placeholder="reading speed" id="readingSpeed" value="200">words/minute</input>
-      <button type="button" id="playPauseButton" onclick="playPauseReader()"></button>
+      <div class="outputContainer">
+        <div class="outputText">
+          <div class="textBox">
+            <p id="outputText">[TEXT]</p>
+          </div>
+        </div>
+        <div class="controls">
+          <button type="button" id="playPauseButton" onclick="playPauseReader()" class="fas fa-play"></button>
+          <input type="text" placeholder="reading speed" id="readingSpeed" value="200">words/minute</input>
+        </div>
+        <div class="spacer">
+          <div class="backButtonContainer">
+            <button type="button" id="backButton" onclick="showInput()">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Made by <a href="https://github.com/derPiepmatz">Piepmatz</a>  </p>
     </div>
     <script type="text/javascript" src="js/speedReading.js"></script>
+    <script type="text/javascript" src="js/contents.js"></script>
   </body>
 </html>

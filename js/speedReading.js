@@ -1,5 +1,5 @@
 document.getElementById("inputText").value = sessionStorage.getItem("convertText");
-document.getElementById("readingSpeed").value = localStorage.getItem("readingSpeed");
+document.getElementById("readingSpeed").value = localStorage.getItem("readingSpeed").trim();
 //paste in saved data
 if(Number(localStorage.getItem("readingSpeed")) == 0) {
   //if no speed is saved
@@ -18,7 +18,7 @@ function wordsPerMinute() {
     alert("No reading Speed");
     return;
   }
-  let wordsPerMinute = document.getElementById("readingSpeed").value;
+  let wordsPerMinute = document.getElementById("readingSpeed").value.trim();
   localStorage.setItem("readingSpeed", wordsPerMinute);
   //remember reading speed of user
   return wordsPerMinute;
@@ -42,11 +42,10 @@ function convertText() {
 
   clearInterval(loopFunction);
 
-  play = true;
+  play = false;
   currentWord = 0;
-  loopFunction = setInterval(runReader, wordTimer(wordsPerMinute()));
 
-  document.getElementById("playPauseButton").focus();
+  selectPlayPause();
   //focuses the button to pause via space
 }
 
@@ -60,19 +59,30 @@ function runReader() {
 
   if(currentWord >= wordArray.length) {
     //cancels reader when text is finished
-    clearInterval(loopFunction);
+    playPauseReader();
+    //document.getElementById("playPauseButton").classList.replace("fa-pause", "fa-play");
   }
 }
 
+function selectPlayPause() {
+  document.getElementById("playPauseButton").focus();
+}
+
 function playPauseReader() {
+  var playPauseButton = document.getElementById("playPauseButton");
   if (play) {
     //pauses the reader
     play = false;
     clearInterval(loopFunction);
+    playPauseButton.classList.replace("fa-pause", "fa-play");
   }
   else {
     //continues the reader
     play = true;
+    if(currentWord >= wordArray.length) {
+      currentWord = 0;
+    }
     loopFunction = setInterval(runReader, wordTimer(wordsPerMinute()));
+    playPauseButton.classList.replace("fa-play", "fa-pause");
   }
 }

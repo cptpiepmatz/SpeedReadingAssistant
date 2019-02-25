@@ -1,0 +1,233 @@
+/*
+Body Elements
+*/
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #EEE;
+  font-family: sans-serif;
+  display: flex;
+  flex-flow: column;
+  box-sizing: border-box;
+  max-width: 100vw;
+}
+body > div {
+  max-width: inherit;
+}
+
+/*
+Heading Elements
+*/
+div.heading {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #222629;
+  border-bottom: solid 3px #86C232;
+}
+div.heading h1 {
+  font-size: 2.5em;
+  font-weight: normal;
+  margin: 0;
+  padding: 15px;
+  padding-bottom: 0;
+  font-family: inherit;
+  color: white;
+}
+div.heading p {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 15px;
+  padding-left: 22px;
+  font-family: inherit;
+  color: #86C232;
+}
+
+/*
+Main Container
+*/
+div.mainContainer {
+  flex: 1;
+  width: 100%;
+}
+
+/*
+Input Container
+*/
+div.inputContainer {
+  height: 100%;
+  width: 100%;
+}
+div.inputContainer textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
+  background-color: inherit;
+  border: none;
+  padding: 5px;
+  color: #222629;
+  font-size: 1.1em;
+  font-family: inherit;
+}
+div.inputContainer textarea::selection {
+  background-color: #86C232;
+}
+div.inputContainer textarea:focus {
+  outline: none;
+}
+div.inputContainer div {
+  position: absolute;
+  height: 90px;
+  width: 200px;
+  border: none;
+  border-top-left-radius: 25px;
+  bottom: 0;
+  right: 0;
+  background-color: #222629;
+}
+div.inputContainer div button {
+  margin: 20px;
+  font-size: 1.3em;
+  font-family: inherit;
+  color: white;
+  background-color: #86C232;
+  border-radius: 20px;
+  border: none;
+  padding: 2px 12px;
+  width: 156px;
+  box-sizing: border-box;
+  border: solid 3px rgba(0,0,0,0);
+}
+div.inputContainer div button:hover {
+  cursor: pointer;
+  border-color: #61892F;
+}
+div.inputContainer div button:focus {
+  outline: none;
+}
+div.inputContainer div button:active {
+  background-color: #61892F;
+}
+
+/*
+Output Container
+*/
+div.outputContainer {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+div.outputContainer div.outputText {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.outputContainer div.outputText div.textBox {
+  background-color: #222629;
+  border: solid 5px #86C232;
+  width: 35%;
+}
+div.outputContainer div.outputText div.textBox p {
+  padding: 10px;
+  font-weight: bold;
+  font-family: inherit;
+  color: white;
+  text-align: center;
+  font-size: 3em;
+}
+div.outputContainer div.controls {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+div.outputContainer div.controls button {
+  border: solid 2px #86C232;
+  color: white;
+  background-color: #222629;
+  font-size: 5em;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+div.outputContainer div.controls button:focus {
+  outline: none;
+}
+div.outputContainer div.controls input {
+  border: none;
+  background-color: #222629;
+  color: white;
+  text-align: center;
+  width: 5em;
+}
+div.outputContainer div.spacer {
+  height: 100px;
+}
+div.outputContainer div.spacer div {
+  position: absolute;
+  height: 90px;
+  width: 200px;
+  border: none;
+  border-top-right-radius: 25px;
+  bottom: 0;
+  right: left;
+  background-color: #222629;
+}
+div.outputContainer div.spacer div button {
+  margin: 20px;
+  font-size: 1.3em;
+  font-family: inherit;
+  color: white;
+  background-color: #86C232;
+  border-radius: 20px;
+  border: none;
+  padding: 2px 12px;
+  width: 156px;
+  box-sizing: border-box;
+  border: solid 3px rgba(0,0,0,0);
+}
+div.outputContainer div.spacer div button:hover {
+  cursor: pointer;
+  border-color: #61892F;
+}
+div.outputContainer div.spacer div button:focus {
+  outline: none;
+}
+div.outputContainer div.spacer div button:active {
+  background-color: #61892F;
+}
+
+/*
+Footer Elements
+*/
+div.footer {
+  height: 25px;
+  color: white;
+  background-color: #222629;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+}
+div.footer p {
+  margin: 0;
+  padding: 0;
+}
+div.footer p a {
+  color: white;
+}
+
+/*
+change current view styles
+*/
+div.mainContainer.showOutput div.inputContainer {
+  display: none;
+}
+div.mainContainer.showOutput div.outputContainer {
+  display: flex;
+}
