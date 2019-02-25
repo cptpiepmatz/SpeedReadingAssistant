@@ -231,3 +231,27 @@ div.mainContainer.showOutput div.inputContainer {
 div.mainContainer.showOutput div.outputContainer {
   display: flex;
 }
+
+/*
+Mobile Version
+*/
+@media (max-width: 700px) {
+  div.heading h1 {
+    font-size: 1.3em;
+  }
+  div.heading p {
+    font-size: 1em;
+  }
+  div.outputContainer div.outputText div.textBox {
+    width: 90%;
+  }
+  div.outputContainer div.outputText div.textBox p {
+    padding: 5px;
+    font-size: 2em;
+  }
+  div.outputContainer div.controls button {
+    font-size: 4em;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+}
