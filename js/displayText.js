@@ -25,12 +25,12 @@ function updateSpeed() {}
     let playButton = document.getElementById("playButton");
     let pauseButton = document.getElementById("pauseButton");
     if (setPlay) {
-      playButton.hidden = false;
-      pauseButton.hidden = true;
+      playButton.hidden = true;
+      pauseButton.hidden = false;
       return;
     }
-    playButton.hidden = true;
-    pauseButton.hidden = false;
+    playButton.hidden = false;
+    pauseButton.hidden = true;
   }
 
   function getSpeed() {
