@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="icon/icon.svg" width="256"/>
-</p>
-
 # SpeedReadingAssistant
 Link to the tool: [here](https://derpiepmatz.github.io/SpeedReadingAssistant/)
 ## About
