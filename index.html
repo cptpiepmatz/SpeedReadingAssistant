@@ -1,44 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>SpeedReadingAssistant</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  </head>
-  <body onclick="selectPlayPause()">
-    <div class="heading">
-      <h1>SPEED READING ASSISTANT</h1>
-      <p>Read faster by removing the need to move your eye</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpeedReadingAssistant - Read faster by removing the need to move your eyes</title>
+    <meta name="theme-color" content="#86C232">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="js/convertText.js"></script>
+    <script src="js/latestTexts.js"></script>
+    <script src="js/websiteVersion.js"></script>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
+</head>
+<body>
+    <div class="headBar">
+        <div class="sideBarButton">
+            <a>
+                <div class="sideBarButtonFrame" onclick="toggleSidebar()">
+                    <img draggable="false" class="sideBarButtonImage" src="img/sideMenuButton.svg" alt="sideMenuButton" id="sideMenuButton">
+                    <img draggable="false" class="sideBarButtonImage" src="img/sideMenuBackButton.svg" alt="sideMenuBackButton" id="sideMenuBackButton" hidden>
+                </div>
+            </a>
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img draggable="false" class="logoImage" src="img/sra-logo-transparent.svg" alt="sra-logo-transparent">
+                <div class="logoText">
+                    <p class="logoTextSpeed">Speed</p>
+                    <p class="logoTextReading">Reading</p>
+                    <p class="logoTextAssistant">Assistant</p>
+                </div>
+            </a>
+        </div>
     </div>
-    <div class="mainContainer" id="main">
-      <div class="inputContainer">
-        <textarea id="inputText" name="input" rows="8" cols="80"></textarea>
+    <div class="dividerBar"></div>
+    <div class="mainContainer">
+        <div class="subTitle">
+            <p class="subTitleText">Read faster by removing the need to move your eyes</p>
+        </div>
+        <div class="inputContainer">
+            <div class="inputContainerHead">
+                <p class="inputContainerHeadText">Text to convert</p>
+            </div>
+            <div class="inputTextContainer">
+                <textarea onkeyup="updateConvertButton()" placeholder="Input text here..." class="inputTextField" id="inputTextField"></textarea>
+            </div>
+        </div>
         <div class="convertButtonContainer">
-          <button type="button" id="convertButton" onclick="showOutput();convertText()">Convert</button>
+            <div class="convertButton disabled" id="convertButton" onclick="convertText()">
+                <p class="convertButtonText">Convert</p>
+            </div>
         </div>
-      </div>
-      <div class="outputContainer">
-        <div class="outputText">
-          <div class="textBox">
-            <p id="outputText">[TEXT]</p>
-          </div>
-        </div>
-        <div class="controls">
-          <button type="button" id="playPauseButton" onclick="playPauseReader()" class="fas fa-play"></button>
-          <input type="text" placeholder="reading speed" id="readingSpeed" value="200">words/minute</input>
-        </div>
-        <div class="spacer">
-          <div class="backButtonContainer">
-            <button type="button" id="backButton" onclick="showInput()">Back</button>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="footer">
-      <p>Made by <a href="https://github.com/derPiepmatz">Piepmatz</a>  </p>
+    <div class="latestTextsContainer hideLeft" id="latestTextsContainer">
+        <div class="latestTextsHead">
+            <p>Latest Texts</p>
+        </div>
+        <div class="latestTextsDividerBar"></div>
+        <div class="latestTexts">
+            <div class="latestTextsNothingContainer" id="latestTextsNothing">
+                <p class="latestTextsNothing">┻━┻ ヘ╰( •̀ε•́ ╰)<br>Nothing here</p>
+            </div>
+            <div class="latestText" id="latestText1" onclick="reuseLatestText(0)" hidden>
+                <p>Last Text 1...</p>
+            </div>
+            <div class="latestText" id="latestText2" onclick="reuseLatestText(1)" hidden>
+                <p>Last Text 2...</p>
+            </div>
+            <div class="latestText" id="latestText3" onclick="reuseLatestText(2)" hidden>
+                <p>Last Text 3...</p>
+            </div>
+            <div class="latestText" id="latestText4" onclick="reuseLatestText(3)" hidden>
+                <p>Last Text 4...</p>
+            </div>
+            <div class="latestText" id="latestText5" onclick="reuseLatestText(4)" hidden>
+                <p>Last Text 5...</p>
+            </div>
+        </div>
     </div>
-    <script type="text/javascript" src="js/speedReading.js"></script>
-    <script type="text/javascript" src="js/contents.js"></script>
-  </body>
+    <div class="bottomBar">
+        <div class="bottomTextContainer">
+            <p class="websiteVersion" id="websiteVersion">X.X.X</p>
+        </div>
+        <div class="bottomTextContainer">
+            <p class="bottomText">Made by <a target="_blank" href="https://github.com/derPiepmatz">Piepmatz</a> </p>
+        </div>
+    </div>
+</body>
 </html>

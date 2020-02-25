@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpeedReadingAssistant - Read faster by removing the need to move your eyes</title>
+    <meta name="theme-color" content="#86C232">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="js/displayText.js"></script>
+    <script src="js/latestTexts.js"></script>
+    <script src="js/storeSpeed.js"></script>
+    <script src="js/websiteVersion.js"></script>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
+</head>
+<body>
+<div class="headBar">
+    <div class="sideBarButton">
+        <a>
+            <div class="sideBarButtonFrame" onclick="toggleSidebar()">
+                <img draggable="false" class="sideBarButtonImage" src="img/sideMenuButton.svg" alt="sideMenuButton" id="sideMenuButton">
+                <img draggable="false" class="sideBarButtonImage" src="img/sideMenuBackButton.svg" alt="sideMenuBackButton" id="sideMenuBackButton" hidden>
+            </div>
+        </a>
+    </div>
+    <div class="logo">
+        <a href="index.html">
+            <img draggable="false" class="logoImage" src="img/sra-logo-transparent.svg" alt="sra-logo-transparent">
+            <div class="logoText">
+                <p class="logoTextSpeed">Speed</p>
+                <p class="logoTextReading">Reading</p>
+                <p class="logoTextAssistant">Assistant</p>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="dividerBar"></div>
+<div class="mainContainer reader">
+    <div class="outputContainer">
+        <div class="outputPreWordContainer outputPrePostContainer">
+            <p class="outputPreWord outputPrePostWord" id="outputPreWord">LOngSTUFFLOL</p>
+        </div>
+        <div class="outputTextContainer">
+            <div class="outputTextContainerHead">
+                <p class="outputTextContainerHeadText">Converted Text</p>
+            </div>
+            <div class="outputTextContainerBody">
+                <p class="outputText" id="outputText">TestCenter</p>
+            </div>
+        </div>
+        <div class="outputPostWordContainer outputPrePostContainer">
+            <p class="outputPostWord outputPrePostWord" id="outputPostWord">LangeDingesindlang</p>
+        </div>
+    </div>
+    <div class="playPauseContainer">
+        <div class="playPauseButton" onclick="runReader()">
+            <img draggable="false" src="img/playButton.svg" alt="playButton" class="playPause" id="playButton" hidden>
+            <img draggable="false" src="img/pauseButton.svg" alt="pauseButton" class="playPause" id="pauseButton">
+        </div>
+    </div>
+    <div class="speedContainer">
+        <div class="speedInputContainer">
+            <input type="number" class="speedInput" id="speedInput" value="300" min="1" onchange="updateSpeed(); saveSpeed()">
+            <p class="speedInputText">words/minute</p>
+        </div>
+    </div>
+</div>
+<div class="latestTextsContainer hideLeft" id="latestTextsContainer">
+    <div class="latestTextsHead">
+        <p>Latest Texts</p>
+    </div>
+    <div class="latestTextsDividerBar"></div>
+    <div class="latestTexts">
+        <div class="latestTextsNothingContainer" id="latestTextsNothing">
+            <p class="latestTextsNothing">┻━┻ ヘ╰( •̀ε•́ ╰)<br>Nothing here</p>
+        </div>
+        <div class="latestText" id="latestText1" onclick="reuseLatestText(0)" hidden>
+            <p>Last Text 1...</p>
+        </div>
+        <div class="latestText" id="latestText2" onclick="reuseLatestText(1)" hidden>
+            <p>Last Text 2...</p>
+        </div>
+        <div class="latestText" id="latestText3" onclick="reuseLatestText(2)" hidden>
+            <p>Last Text 3...</p>
+        </div>
+        <div class="latestText" id="latestText4" onclick="reuseLatestText(3)" hidden>
+            <p>Last Text 4...</p>
+        </div>
+        <div class="latestText" id="latestText5" onclick="reuseLatestText(4)" hidden>
+            <p>Last Text 5...</p>
+        </div>
+    </div>
+</div>
+<div class="bottomBar">
+    <div class="bottomTextContainer">
+        <p class="websiteVersion" id="websiteVersion">X.X.X</p>
+    </div>
+    <div class="bottomTextContainer">
+        <p class="bottomText">Made by <a target="_blank" href="https://github.com/derPiepmatz">Piepmatz</a> </p>
+    </div>
+</div>
+</body>
+</html>
